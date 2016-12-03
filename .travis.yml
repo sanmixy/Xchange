@@ -7,4 +7,5 @@ python:
 
 # command to run test
 before_script:
+- cd Xchange_master
 - python manage.py syncdb --noinput
