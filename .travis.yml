@@ -1,10 +1,10 @@
 language: python
 python:
-	- "3.3"
+- "3.3"
 
 # command to install dependencies
-	- pip install django==1.8.15
+- pip install django==1.8.15
 
 # command to run test
 before_script:
-	- python manage.py syncdb --noinput
+- python manage.py syncdb --noinput
