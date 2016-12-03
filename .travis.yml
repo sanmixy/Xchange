@@ -1,0 +1,10 @@
+language: python
+python:
+	- "3.3"
+
+# command to install dependencies
+ 	- pip install .
+	- pip install django==1.8.15
+
+# command to run test
+scripts: pytest
