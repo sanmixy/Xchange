@@ -2,8 +2,13 @@ language: python
 python:
 - "3.3"
 
+env:
+- DJANGO_VERSION=1.8.15
+
+
 # command to install dependencies
-- pip install django==1.8.15
+install:
+- pip install django==DJANGO_VERSION
 
 # command to run test
 before_script:
