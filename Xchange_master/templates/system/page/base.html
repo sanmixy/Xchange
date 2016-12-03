@@ -1,10 +1,55 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Base</title>
+    <!-- css files -->
+    <link rel="stylesheet" href="{% static 'system/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'system/css/bootstrap-table.css' %}">
+    <link rel="stylesheet" href="{% static 'system/css/bootstrap-theme.css' %}">
+
+    <!-- js files -->
+    <script type="text/javascript" src="{% static 'system/js/jquery-3.1.1.js' %}"></script>
+    <script type="text/javascript" src="{% static 'system/js/bootstrap.js' %}"></script>
+    <script type="text/javascript" src="{% static 'system/js/bootstrap-table.js' %}"></script>
+    <script type="text/javascript" src="{% static 'system/js/bootstrap-table-zh-CN.js' %}"></script>
 </head>
 <body>
-
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand hidden-sm" href="/">
+                <span class="glyphicon glyphicon-leaf"></span>
+                <span>MagBoard</span></a>
+        </div>
+        <div class="navbar-collapse collapse" role="navigation">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="hidden-sm hidden-md"><a href="/datasource"></a>
+                </li>
+                <li class="hidden-sm hidden-md"><a href="/magboard/broadcast">部门公告</a>
+                </li>
+                <li><a href="/magboard/talkshow">部门论坛</a></li>
+                <li><a href="/about">关于</a></li>
+                <li><a href="javascript: void(0)">
+                    {% if status and username %}
+                        <span id='account-hook' class="glyphicon glyphicon-user"
+                              onclick="to_user_center('{{ username }}')">&nbsp;{{ username }}</span>
+                    {% else %}
+                        <span id='account-hook' class="glyphicon glyphicon-user" onclick="to_login()"></span>
+                    {% endif %}
+                </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% block content %}
+{% endblock %}
 </body>
 </html>

@@ -1,5 +1,5 @@
 # Xchange
 Xchange data from various datasources
 
-## ** Xchange Dev ** ##
+## ** Xchange master ** ##
 ## author Xnus ##
