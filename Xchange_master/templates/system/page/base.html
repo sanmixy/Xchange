@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Base</title>
+    <title>Xchange</title>
     <!-- css files -->
     <link rel="stylesheet" href="{% static 'system/css/bootstrap.css' %}">
     <link rel="stylesheet" href="{% static 'system/css/bootstrap-table.css' %}">
@@ -27,16 +27,11 @@
             </button>
             <a class="navbar-brand hidden-sm" href="/">
                 <span class="glyphicon glyphicon-leaf"></span>
-                <span>MagBoard</span></a>
+                <span>Xchange</span></a>
         </div>
         <div class="navbar-collapse collapse" role="navigation">
             <ul class="nav navbar-nav navbar-right">
-                <li class="hidden-sm hidden-md"><a href="/datasource"></a>
-                </li>
-                <li class="hidden-sm hidden-md"><a href="/magboard/broadcast">部门公告</a>
-                </li>
-                <li><a href="/magboard/talkshow">部门论坛</a></li>
-                <li><a href="/about">关于</a></li>
+                <li class="hidden-sm hidden-md"><a href="/datasource"><strong>DataSource</strong></a></li>
                 <li><a href="javascript: void(0)">
                     {% if status and username %}
                         <span id='account-hook' class="glyphicon glyphicon-user"
