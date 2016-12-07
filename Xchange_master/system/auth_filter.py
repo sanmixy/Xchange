@@ -1,8 +1,13 @@
 from django.http import HttpResponseRedirect
 
+paths = [
+    '/'
+]
+
 
 class AuthFilter(object):
-    def process_request(self, request):
-        if request.path != '/system/auth':
-            if 'person' not in request.session:
+    @staticmethod
+    def process_request(request):
+        if request.path in paths:
+            if 'username' not in request.session:
                 return HttpResponseRedirect('/system/auth')
