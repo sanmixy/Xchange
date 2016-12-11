@@ -14,6 +14,8 @@
     <script type="text/javascript" src="{% static 'system/js/bootstrap.js' %}"></script>
     <script type="text/javascript" src="{% static 'system/js/bootstrap-table.js' %}"></script>
     <script type="text/javascript" src="{% static 'system/js/bootstrap-table-zh-CN.js' %}"></script>
+    <script type="text/javascript" src="{% static 'system/js/utils.js' %}"></script>
+    <script type="text/javascript" src="{% static 'system/js/common.js' %}"></script>
 </head>
 <body>
 <div class="navbar navbar-inverse navbar-fixed-top">
@@ -29,24 +31,34 @@
                 <span class="glyphicon glyphicon-leaf"></span>
                 <span>Xchange</span></a>
         </div>
+
         <div class="navbar-collapse collapse" role="navigation">
             <ul class="nav navbar-nav navbar-right">
                 <li class="hidden-sm hidden-md"><a href="/datasource"><strong>DataSource</strong></a></li>
-                <li><a href="javascript: void(0)">
-                    {% if status and username %}
-                        <span id='account-hook' class="glyphicon glyphicon-user"
-                              onclick="to_user_center('{{ username }}')">&nbsp;{{ username }}</span>
-                    {% else %}
-                        <span id='account-hook' class="glyphicon glyphicon-user" onclick="to_login()"></span>
-                    {% endif %}
-                </a></li>
+                {% if status and person %}
+                    <li role="presentation" class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <span class="glyphicon glyphicon-user"><strong>&nbsp;{{ person.username }}</strong></span>
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/system/person/{{ person.id }}">User Profile</a></li>
+                            <li class="divider"></li>
+                            <li><a id='sign_out_hook' href="javascript: void(0);">Sign Out</a></li>
+                        </ul>
+                    </li>
+                {% else %}
+                    <span id='account_hook' class="glyphicon glyphicon-user" onclick="to_login()"></span>
+                {% endif %}
             </ul>
         </div>
     </div>
 </div>
-<div class='container'>
-    {% block content %}
-    {% endblock %}
+<div class='jumbotron'>
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
 </div>
 </body>
 </html>

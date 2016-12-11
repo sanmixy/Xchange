@@ -7,12 +7,16 @@ $(function () {
             var username = $('input#username_field').val().trim(),
                 passcode = $('input#passcode_field').val();
             if (username) {
-                sender('/system/login', {'username': username, 'passcode': passcode}, process_login_result);
+                sender('/system/login', process_login_result, {'username': username, 'passcode': passcode});
             }
         });
 
-        function process_login_result(result) {
-            alert(JSON.stringify(result));
+        function process_login_result(answer) {
+            var next = $.get_param('next') || '/';
+            if (answer.result)
+                window.location.href = next;
+            else
+                $('div#login_area').shake(4, 20, 200);
         }
     }
 
