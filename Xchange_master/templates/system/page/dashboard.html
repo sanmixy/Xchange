@@ -1,7 +1,12 @@
 {% extends 'system/page/base.html' %}
 {% load static %}
 {% block content %}
-    <div id="global_intro_area" style="width: 100%; height: 80%">
-        Xchang
+    <link rel="stylesheet" href="{% static 'system/css/dashboard.css' %}">
+    <script type="text/javascript" src="{% static 'system/js/dashboard.js' %}"></script>
+    <div id="global_intro_area">
+        <div>
+            <img src="{% static 'system/img/logo.bmp' %}">
+        </div>
+
     </div>
 {% endblock %}
