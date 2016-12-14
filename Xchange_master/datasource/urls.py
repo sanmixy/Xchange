@@ -12,11 +12,10 @@ Class-based views
 Including another URLconf
     1. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import include, url
-from django.contrib import admin
+from django.conf.urls import url
 
-from system import views
+from datasource import views
 
 urlpatterns = [
-
+    url(r'^dashboard$', views.datasource_view, name='datasource main page')
 ]
