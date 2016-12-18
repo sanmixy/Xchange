@@ -17,5 +17,8 @@ from django.conf.urls import url
 from datasource import views
 
 urlpatterns = [
-    url(r'^dashboard$', views.datasource_view, name='datasource main page')
+    url(r'^dashboard$', views.datasource_view, name='datasource main page'),
+    url(r'^department/all$', views.all_departments, name='all departments'),
+    url(r'^system/filter$', views.system_with_depts, name='view system by department'),
+    url(r'^push$', views.add_datasource, name='add a new datasource')
 ]

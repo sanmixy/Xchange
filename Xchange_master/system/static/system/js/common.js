@@ -8,4 +8,7 @@ $(function () {
             })
         });
     }
+
+    var height = window.outerHeight;
+    $('div#global_intro_area').css('height', height);
 });

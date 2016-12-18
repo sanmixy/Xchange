@@ -1,12 +1,13 @@
 {% extends 'system/page/base.html' %}
 {% load static %}
-{% block content %}
+
+{% block static %}
     <link rel="stylesheet" href="{% static 'system/css/dashboard.css' %}">
     <script type="text/javascript" src="{% static 'system/js/dashboard.js' %}"></script>
-    <div id="global_intro_area">
-        <div>
-            <img src="{% static 'system/img/logo.bmp' %}">
-        </div>
+{% endblock %}
 
+{% block content %}
+    <div id="logo_area">
+        <img src="{% static 'system/img/logo.bmp' %}">
     </div>
 {% endblock %}

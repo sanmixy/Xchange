@@ -4,8 +4,8 @@ from django.utils import timezone
 
 
 class Department(models.Model):
-    department_name = models.CharField(max_length=64, help_text='the department of users')
-    is_center_department = models.BooleanField(default=False, help_text='judge the level of department')
+    department_name = models.CharField(max_length=64, unique=True, help_text='the department of users')
+    center_department = models.BooleanField(default=False, help_text='judge the level of department')
 
     def is_center(self):
         return self.is_center_department
@@ -18,7 +18,7 @@ class Department(models.Model):
 
 
 class System(models.Model):
-    system_name = models.CharField(max_length=64,
+    system_name = models.CharField(max_length=64, unique=True,
                                    help_text='the system of users, a system must be matched with a department')
     department = models.ForeignKey(Department)
 

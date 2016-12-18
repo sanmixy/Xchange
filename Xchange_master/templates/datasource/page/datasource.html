@@ -1,1 +1,116 @@
 {% extends 'system/page/base.html' %}
+{% load static %}
+{% block static %}
+    <link rel="stylesheet" href="{% static 'datasource/css/datasource.css' %}">
+    <script type="text/javascript" src="{% static 'datasource/js/datasource.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+
+    <div class="row" style="width: 30%">
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+            <button id='add_datasource_hook' class="btn btn-sm active" style="background-color: #333333">
+                <span class="glyphicon glyphicon-plus" style="color: #9d9d9d;"></span>
+            </button>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+            <button id='del_datasource_hook' class="btn btn-sm active" style="background-color: #333333">
+                <span class="glyphicon glyphicon-trash" style="color: #9d9d9d;"></span>
+            </button>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+            <button id='mod_datasource_hook' class="btn btn-sm active" style="background-color: #333333">
+                <span class="glyphicon glyphicon-pencil" style="color: #9d9d9d;"></span>
+            </button>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+            <button id='view_datasource_hook' class="btn btn-sm active" style="background-color: #333333">
+                <span class="glyphicon glyphicon-zoom-in" style="color: #9d9d9d;"></span>
+            </button>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table id="datasource"></table>
+    </div>
+{% endblock %}
+
+{% block modals %}
+    <!-- add datasource -->
+    <div id='datasource_add_modal' class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span
+                            aria-hidden="true">&times;</span><span
+                            class="sr-only">Close</span></button>
+                    <h4 class="modal-title">Add New Datasource</h4>
+                </div>
+                <div class="modal-body">
+                    <div id='datasource_add_form_area'>
+                        <div class="form-group">
+                            <label for="alias">alias</label>
+                            <input type="text" name="alias" id="alias" class="form-control"
+                                   placeholder="datasource name">
+                        </div>
+                        <div class="form-group">
+                            <label for="departments">deparmtment</label>
+                            <select id='departments' class="form-control">
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="systems">system</label>
+                            <select id='systems' class="form-control">
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="source_types">datasource type</label>
+                            <select id='source_types' class="form-control">
+                                <option value="DB">DATABASE</option>
+                                <option value="FTP">FTP</option>
+                                <option value="SFTP">SECURE FTP</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="database_types">database type</label>
+                            <select id='database_types' class="form-control">
+                                <option value="MYSQL">MYSQL</option>
+                                <option value="SQLITE">SQLITE</option>
+                                <option value="ORACLE">ORACLE</option>
+                                <option value="SQLSERVER">SQLSERVER</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="host_active">host</label>
+                            <input type="text" name="host_active" id="host_active" class="form-control"
+                                   placeholder="main node host">
+                        </div>
+                        <div class="form-group">
+                            <label for="port_active">port</label>
+                            <input type="text" name="port_active" id="port_active" class="form-control"
+                                   placeholder="main node port">
+                        </div>
+                        <div class="form-group">
+                            <label for="database_name">database name</label>
+                            <input type="text" name="database_name" id="database_name" class="form-control"
+                                   placeholder="database or service name">
+                        </div>
+                        <div class="form-group">
+                            <label for="username">username</label>
+                            <input type="text" name="username" id="username" class="form-control"
+                                   placeholder="auth account">
+                        </div>
+                        <div class="form-group">
+                            <label for="passcode">passcode</label>
+                            <input type="password" name="passcode" id="passcode" class="form-control"
+                                   placeholder="auth account passcode">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">cancel</button>
+                    <button id='add_datasource' type="button" class="btn btn-primary">add</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+{% endblock %}

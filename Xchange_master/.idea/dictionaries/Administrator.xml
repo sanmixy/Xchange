@@ -5,6 +5,7 @@
       <w>glyphicon</w>
       <w>navbar</w>
       <w>sqlite</w>
+      <w>sqlserver</w>
     </words>
   </dictionary>
 </component>

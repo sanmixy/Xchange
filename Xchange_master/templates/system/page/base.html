@@ -8,14 +8,18 @@
     <link rel="stylesheet" href="{% static 'system/css/bootstrap.css' %}">
     <link rel="stylesheet" href="{% static 'system/css/bootstrap-table.css' %}">
     <link rel="stylesheet" href="{% static 'system/css/bootstrap-theme.css' %}">
+    <link rel="stylesheet" href="{% static 'system/css/common.css' %}">
 
     <!-- js files -->
     <script type="text/javascript" src="{% static 'system/js/jquery-3.1.1.js' %}"></script>
     <script type="text/javascript" src="{% static 'system/js/bootstrap.js' %}"></script>
     <script type="text/javascript" src="{% static 'system/js/bootstrap-table.js' %}"></script>
     <script type="text/javascript" src="{% static 'system/js/bootstrap-table-zh-CN.js' %}"></script>
+    <script type="text/javascript" src="{% static 'system/js/underscore.js' %}"></script>
     <script type="text/javascript" src="{% static 'system/js/utils.js' %}"></script>
     <script type="text/javascript" src="{% static 'system/js/common.js' %}"></script>
+    {% block static %}
+    {% endblock %}
 </head>
 <body>
 <div class="navbar navbar-inverse navbar-fixed-top">
@@ -56,9 +60,14 @@
 </div>
 <div class='jumbotron'>
     <div class="container">
-        {% block content %}
-        {% endblock %}
+        <div id="global_intro_area">
+            {% block content %}
+            {% endblock %}
+        </div>
     </div>
 </div>
+
+{% block modals %}
+{% endblock %}
 </body>
 </html>

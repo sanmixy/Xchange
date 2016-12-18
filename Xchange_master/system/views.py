@@ -35,7 +35,11 @@ def dashboard(request):
 
 def person_info(request):
     session = request.session
-    return {'person': User.objects.get(id=session.get('person_id', '')), 'status': session.get('status', False)}
+    try:
+        person = User.objects.get(id=session.get('person_id', '0'))
+    except User.DoesNotExist:
+        person = ''
+    return {'person': person, 'status': session.get('status', False)}
 
 
 @csrf_exempt

@@ -1,7 +1,8 @@
 from django.http import HttpResponseRedirect
 
 paths = [
-    '/'
+    '/',
+    '/datasource/dashboard'
 ]
 
 
