@@ -10,7 +10,7 @@ class Department(models.Model):
     def is_center(self):
         return self.is_center_department
 
-    def __str__(self):
+    def __unicode__(self):
         return self.department_name
 
     class Meta:
@@ -22,7 +22,7 @@ class System(models.Model):
                                    help_text='the system of users, a system must be matched with a department')
     department = models.ForeignKey(Department)
 
-    def __str__(self):
+    def __unicode__(self):
         return self.system_name
 
     class Meta:
@@ -34,7 +34,7 @@ class UserProfile(models.Model):
     department = models.ForeignKey(Department, null=True, help_text="user's department")
     system = models.ForeignKey(System, null=True, help_text="user's system")
 
-    def __str__(self):
+    def __unicode__(self):
         return self.user.username
 
     def is_department_user(self):
@@ -51,7 +51,7 @@ class LoginRecord(models.Model):
     user = models.ForeignKey(User, help_text='user')
     login_time = models.DateTimeField(default=timezone.now(), help_text='login time')
 
-    def __str__(self):
+    def __unicode__(self):
         return self.user.username
 
     class Meta:

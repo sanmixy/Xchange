@@ -24,7 +24,7 @@ class DataSource(models.Model):
     username = models.CharField(max_length=64, default='', help_text='auth account')
     passcode = models.CharField(max_length=64, default='', help_text='auth passcode')
 
-    def __str__(self):
+    def __unicode__(self):
         return self.alias
 
     class Meta:
@@ -42,7 +42,7 @@ class DatabaseSource(models.Model):
     database_type = models.CharField(max_length=16, choices=database_types, help_text='type of database')
     database_name = models.CharField(max_length=32, null=True, default=None, help_text='database or service name')
 
-    def __str__(self):
+    def __unicode__(self):
         return self.datasource.alias
 
     class Meta:
@@ -52,7 +52,7 @@ class DatabaseSource(models.Model):
 class FTPSource(models.Model):
     datasource = models.ForeignKey(DataSource, on_delete=CASCADE)
 
-    def __str__(self):
+    def __unicode__(self):
         return self.datasource.alias
 
     class Meta:

@@ -1,5 +1,4 @@
 # Create your views here.
-import base64
 import json
 
 from django.core import serializers
@@ -9,7 +8,6 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 
-from datasource.Cipher import encode
 from datasource.models import DataSource, DatabaseSource
 from system.models import Department, System
 from system.views import person_info
@@ -51,7 +49,7 @@ def add_datasource(request):
     port_active = request.POST.get('port_active', None)
     database_name = request.POST.get('database_name', None)
     username = request.POST.get('username', None)
-    passcode = base64.b64encode(encode(request.POST.get('passcode', None)))
+    passcode = request.POST.get('passcode', None)
     output = {
         'result': datasource_processor[type](alias, department_id, system_id, database_type, host_active, port_active,
                                              database_name, username, passcode)}
