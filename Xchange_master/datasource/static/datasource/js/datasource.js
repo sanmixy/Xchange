@@ -23,7 +23,7 @@ $(function () {
             };
             sender('/datasource/push', process_push_datasource_result, post_data);
             function process_push_datasource_result(r) {
-                if (r) {
+                if (r.result) {
                     alert('yes');
                     $('div#datasource_add_modal').modal('hide');
                 } else {

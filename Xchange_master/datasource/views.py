@@ -64,7 +64,7 @@ def database_processor(alias, department_id, system_id, database_type, host_acti
                                 host_active=host_active, port_active=port_active, username=username,
                                 passcode=passcode)
         datasource.save()
-        database_source = DatabaseSource(database_type=database_type,
+        database_source = DatabaseSource(datasource=datasource, database_type=database_type,
                                          database_name=database_name)
         database_source.save()
         return True
